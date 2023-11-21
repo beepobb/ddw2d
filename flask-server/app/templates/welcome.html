@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+  blank space
+</div>
+<div class="modal modal-sheet position-static d-block p-4 py-md-5" tabindex="-1" role="dialog" id="modalTour">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content rounded-4 shadow">
+        <div class="modal-body p-5">
+          <h2 class="fw-bold mb-0 fade-in-text">Prediction Model</h2>
+  
+          <ul class="d-grid gap-4 my-5 list-unstyled small">
+            <li class="d-flex gap-4">
+              <svg class="bi text-body-secondary flex-shrink-0" width="48" height="48"><use xlink:href="#grid-fill"></use></svg>
+              <div>
+                <h5 class="mb-0">Selection 1</h5>
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  dropdown button
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><a class="dropdown-item" href="#">Data 1</a></li>
+                  <li><a class="dropdown-item" href="#">Data 2</a></li>
+                  <li><a class="dropdown-item" href="#">Data 3</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="d-flex gap-4">
+              <svg class="bi text-warning flex-shrink-0" width="48" height="48"><use xlink:href="#bookmark-star"></use></svg>
+              <div>
+                <h5 class="mb-0">Selection 2</h5>
+                Save items you love for easy access later.
+              </div>
+            </li>
+            <li class="d-flex gap-4">
+              <svg class="bi text-primary flex-shrink-0" width="48" height="48"><use xlink:href="#film"></use></svg>
+              <div>
+                <h5 class="mb-0">Selection 3</h5>
+                Share videos wherever you go.
+              </div>
+            </li>
+          </ul>
+          <button type="button" class="btn btn-lg btn-primary mt-5 w-100" data-bs-dismiss="modal" fdprocessedid="xakwfg">Great, thanks!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
