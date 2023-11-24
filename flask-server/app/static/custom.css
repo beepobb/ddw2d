@@ -1,0 +1,238 @@
+body {
+    background-image: var(--background-image-url);
+    background-size: cover;
+    height: 100vh;
+    color: rgb(215, 214, 214);
+    font-family: 'Raleway';
+}
+
+.fade-in-text {
+    animation: fadeIn 1s ease-in-out;
+}
+
+.fade-in-up {
+    animation-name: fadeInUp;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+.empty-div {
+    margin-top: 12rem;
+}
+
+.code-block {
+    width: 500px;
+    overflow-x: auto;
+}
+
+.custom-padding {
+    padding-top: 10rem;
+}
+
+.code-wrapper {
+    position: relative;
+  }
+  
+.code-wrapper pre {
+    background-color: black;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 0 0 5px 5px;
+    max-width: 82rem;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hljs {
+    background-color: transparent !important;
+}
+
+#intro-msg {
+    font-size: 6rem;
+    font-family: 'Anton-Regular';
+    color: white;
+    user-select: none;
+}
+
+#better-world, .btn-box {
+    opacity: 0;
+}
+
+#btn, #learn-more {
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 0;
+    color: rgb(18,225,185);
+    border-color: rgb(18,225,185);
+    width: 15rem;
+    background-color: transparent;
+}
+
+.my-input {
+    background-color: white;
+    color: black;
+    font-family: "Arial";
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 0;
+    width: 15rem;
+    height: 3.8rem;
+}
+
+#btn:hover, #learn-more:hover {
+    background-color: rgb(18,225,185);
+    color: black;
+    border-color: transparent;
+}
+
+#tool-txt {
+    font-size: 3rem;
+    color: rgb(18,225,185) !important;
+}
+
+.typewriter {
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid orange; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    animation: 
+      typing 3.5s steps(40, end),
+      blink-caret .75s step-end infinite;
+}
+
+.s-btn{
+    width: 3.8rem;
+    height: 3.8rem;
+    border: none;
+    background-color: rgb(56, 119, 106);
+    color: #fff;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='11' viewBox='0 0 7.41 12'%3E%3Cpath d='M10,6,8.59,7.41,13.17,12,8.59,16.59,10,18l6-6Z' transform='translate(-8.59 -6)' fill='%23fff'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 24px center;
+}
+
+.text-body {
+    color: rgb(18,225,185) !important;
+}
+
+.para {
+    font-size: 1.15rem;
+}
+
+.space {
+    padding-top: 4rem;
+}
+
+.slidecontainer {
+    width: 100%;
+}
+  
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 25px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #04AA6D;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #04AA6D;
+    cursor: pointer;
+}
+
+  /* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+  
+  /* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
+}
+
+@font-face {
+    font-family: 'Anton-Regular';
+    src: url('/flask-server/app/static/Fonts/Anton/Anton-Regular.ttf');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url('/flask-server/app/static/Fonts/Raleway/Raleway-VariableFont_wght.ttf');
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translate3d(0,40px,0)
+    }
+
+    to {
+        transform: translate3d(0,0,0);
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    #intro-msg {
+        font-size: 5rem;
+        padding-left: 1rem;
+    }
+
+    #btn-box {
+        display: grid !important;
+    }
+
+    .btn-div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 3rem;
+        margin-left: 1rem!important;
+    }
+    
+    #btn, #learn-more {
+        padding: 0.5rel 2rem 1rem 2rem;
+    }
+
+    #tool-txt {
+        font-size: 2rem;
+    }
+
+    .my-input {
+        font-size: 1.9rem;
+        width: 10rem;
+        height: 2.9rem;
+    }
+
+    .space {
+        padding-top: 2rem;
+    }
+
+}

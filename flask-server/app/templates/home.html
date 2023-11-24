@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="custom-padding container col-xl-10 col-xxl-8 pb-3">
+    <h1 id="intro-msg">
+        <span id="new-year" class="fade-in-text">New Year,</span>
+        <br>
+        <span id="better-world">Better World.</span>
+    </h1>
+</div>
+<div class="btn-box container col-xl-10 col-xxl-8 pt-5 d-flex">
+    <div class="me-3 btn-div">
+        <a href="/about">
+            <button id='btn' type="button" class="btn btn-primary btn-lg">ABOUT</button>
+        </a>
+    </div>
+    <div class="mx-3 btn-div">
+        <a href="/math-analysis">
+            <button id='btn' type="button" class="btn btn-primary btn-lg">MATH ANALYSIS</button>
+        </a>
+    </div>
+</div>
+<div class="btn-box container col-xl-10 col-xxl-8 pt-3 d-flex">
+    <div class="me-3 btn-div">
+        <a href="/ml-model">
+            <button id='btn' type="button" class="btn btn-primary btn-lg">ML MODEL</button>
+        </a>
+    </div> 
+    <div class="mx-3 btn-div">
+        <a href="/tool">
+            <button id='btn' type="button" class="btn btn-primary btn-lg">TRY TOOL</button>
+        </a>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='my-js/main.js') }}"></script>
+{% endblock %}
