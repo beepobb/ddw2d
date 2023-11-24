@@ -9,7 +9,7 @@ class MultipleLinearRegression:
 
     Extended Summary
     ----------------
-    The model is designed to be trained to predict multiple target variables using
+    The model is desig\ned to be trained to predict multiple target variables using
     the same input features Hence, the model stores separate sets of parameter values
     for the prediction of each target variable.
     General user flow:

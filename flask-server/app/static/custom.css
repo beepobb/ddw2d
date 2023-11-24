@@ -69,6 +69,17 @@ body {
     background-color: transparent;
 }
 
+#btn-tool {
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 0;
+    color: rgb(18,225,185);
+    border-color: rgb(18,225,185);
+    width: 30rem;
+    height: 5rem;
+    background-color: transparent;
+}
+
 .my-input {
     background-color: white;
     color: black;

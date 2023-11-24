@@ -1,19 +1,20 @@
 import pandas as pd
-from MultipleLinearRegression import MultipleLinearRegression
+from app.model.tools import MultipleLinearRegression
+
 class Tool:
     def __init__(self):
         # Initialize the tool with default values
-        self.county = #user input
-        self.money = #user input
+        # self.county = #user input
+        # self.money = #user input
         self.targetCurrency
-        self.df = pd.read_csv("Desktop/ddw2d-css_edit/flask-server/app/tool/merged_dataset.csv")
+        self.df = pd.read_csv("{{ url_for('static', filename='csv/merged_dataset.csv') }}")
         self.target = "Cost of a healthy diet (PPP dollar per person per day)"
         self.featureList = ["Happiness Index", "Human Development Index", "Quality of Life Index",
                             "Purchasing Power Index", "Cost of Living Index",
                             "Property Price to Income Ratio", "Pollution Index"]
 
         self.model = MultipleLinearRegression()
-        rundf = pd.read_csv("Desktop/ddw2d-css_edit/flask-server/app/tool/Final Dataset Kind of .csv")
+        rundf = pd.read_csv("{{ url_for('static', filename='csv/Final Dataset Kind of .csv) }}")
         self.model.store_data(rundf, self.featureList, self.target, random_state=100, test_size=0)
         self.model.train(self.target, show=False)
 
