@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
         
 
-    if (window.location.pathname === '/about' || window.location.pathname === '/') {
+    if (window.location.pathname === '/about') {
         var aboutElement = document.getElementById('about');
 
         setPaddingClass();
@@ -36,6 +36,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 aboutElement.classList.remove('p-md-5');
                 aboutElement.classList.add('py-md-5');
             }
+        }
+    }
+
+    if (window.location.pathname === '/tool') {
+        var slider = document.getElementById("myRange");
+        var output = document.getElementById("demo");
+        output.innerHTML = slider.value;
+
+        slider.oninput = function() {
+        output.innerHTML = this.value;
         }
     }
 });
