@@ -1,11 +1,11 @@
 from flask import Flask, render_template, request, jsonify
-from tools import Tool  # Import your Tool class
+from tool import Tool  # Import your Tool class
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/tool-prediction-model')
 def index():
-    return render_template('index.html')
+    return render_template('tool.html')
 
 @app.route('/run_linear_regression', methods=['POST'])
 def run_linear_regression():
@@ -29,7 +29,3 @@ def run_linear_regression():
 
     except Exception as e:
         return jsonify({'error': str(e)})
-
-if __name__ == '__main__':
-    app.run(debug=True)
-
