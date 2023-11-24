@@ -2,7 +2,7 @@ body {
     background-image: var(--background-image-url);
     background-size: cover;
     height: 100vh;
-    color: rgb(18,225,185);
+    color: rgb(215, 214, 214);
     font-family: 'Raleway';
 }
 
@@ -34,7 +34,7 @@ body {
   }
   
 .code-wrapper pre {
-    background-color: rgb(0, 0, 0);
+    background-color: black;
     color: white;
     padding: 8px 20px;
     border-radius: 0 0 5px 5px;
@@ -59,7 +59,7 @@ body {
     opacity: 0;
 }
 
-#btn {
+#btn, #learn-more {
     font-size: 1rem;
     font-weight: bold;
     border-radius: 0;
@@ -80,7 +80,7 @@ body {
     height: 3.8rem;
 }
 
-#btn:hover {
+#btn:hover, #learn-more:hover {
     background-color: rgb(18,225,185);
     color: black;
     border-color: transparent;
@@ -88,6 +88,7 @@ body {
 
 #tool-txt {
     font-size: 3rem;
+    color: rgb(18,225,185) !important;
 }
 
 .typewriter {
@@ -110,7 +111,19 @@ body {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='11' viewBox='0 0 7.41 12'%3E%3Cpath d='M10,6,8.59,7.41,13.17,12,8.59,16.59,10,18l6-6Z' transform='translate(-8.59 -6)' fill='%23fff'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 24px center;
-  }
+}
+
+.text-body {
+    color: rgb(18,225,185) !important;
+}
+
+.para {
+    font-size: 1.15rem;
+}
+
+.space {
+    padding-top: 4rem;
+}
 
   /* The typing effect */
 @keyframes typing {
@@ -169,7 +182,7 @@ body {
         margin-left: 1rem!important;
     }
     
-    #btn {
+    #btn, #learn-more {
         padding: 0.5rel 2rem 1rem 2rem;
     }
 
@@ -182,4 +195,9 @@ body {
         width: 10rem;
         height: 2.9rem;
     }
+
+    .space {
+        padding-top: 2rem;
+    }
+
 }
