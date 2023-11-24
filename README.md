@@ -1,7 +1,5 @@
 # Data Driven World 2D Website
 
-## Intro
-
 ## For Windows:
 1. Create a virtual environment:  
 `python -m venv myEnv`
