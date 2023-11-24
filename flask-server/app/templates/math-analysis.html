@@ -1,5 +1,267 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div id="about" class="col-lg-8 mx-auto p-4 py-md-5">
+    <main>        
+        <div data-aos="fade-up" data-aos-duration="1000">
+            <h1 class="text-body">Multi Linear Regression Model</h1>
+            <h2 class="space text-body">Dependent Variable: Cost of a Healthy Diet Per Person Per Day (USD/Day) </h2><br>
+            <p class="para">
+                <div class="pb-5">
+                    For our exploration to be about the cost of food, , it was vital to choose a dependent variable that was actionable and clear. 
+                    It needed but in monetary terms rather than in an index form. The chosen dependent variable is clear cut, and it is very dependent 
+                    on multiple factors, hence making it an ideal dependent variable.  
+                </div>
+                <div class="pb-5">
+                    The data used to train and test this was from FAOSTAT. The organisation declares that a healthy diet is one that consists of enough 
+                    energy and nutrients for a healthy diet. It also restricts the amount of processed food and includes a diet with a wide variety of 
+                    poultry, fruits, vegetables, and legumes. For the exploration at hand, this data is invaluable, as it ensures the lowest cost of a 
+                    healthy diet in each country, with locally sourced food.  
+                </div>
+            </p>
+            <h2 class="space text-body">Exploration of Independent Variables </h2><br>
+            <p class="para">
+                <div class="pb-5">
+                    For a dependable model, there must be independent variables that have a strong correlation to the dependent variable. To assess to 
+                    correlation, we plotted a scatter plot for each dependent and independent variable. Moreover, an R<sup>2</sup> test was done. We used the 
+                    metric R<sup>2</sup> as only one independent variable was assessed at a time, we removed independent variables that had a R2 value of < 0.25, 
+                    which signifies a weak relationship with our dependent variable. 
+                </div>
+                <div class="pb-5">
+                    From this exploration, our initial chosen independent variables were:  
+                    <br>
+                    Crude Birth Rates, Food Price Inflation, Global Peace Index, Happiness Index, Human Development Index, Poverty Headcount, 
+                    Agriculture Gross Production Index, Meat Gross production Index, World Freedom Index, Share of employment in Agriculture,
+                     World Population, Quality of Life index, Purchasing power Index, Safety Index, Health Care index, Cost of Living Index, 
+                     Property Price to income Ratio, Traffic Commute Time index, Pollution Index, climate Index and Global Terrorism Index.  
+                </div>
+            </p>
+            <!-- <div class="text-center">
+                <img id="fig"  src="{{ url_for('static', filename='images/Figure1.1.png') }}" alt="Figure 1.1">
+            </div> -->
+            <h3 class="space text-body">Final Chosen Independent Variables </h2><br>
+            <p class="para">
+                <div class="pb-5">
+                    <table>
+                        <tr id="header">
+                          <th>Independent Variables</th>
+                          <th id="mid-col">Units</th>
+                          <th>Measurements</th>
+                        </tr>
+                        <tr>
+                            <td>>Human Development Index </td>
+                            <td id="mid-col">N.A.</td>
+                            <td>Mean years of schooling, expected years of schooling, life expectancy at birth, and gross 
+                                national income (GNI) per capita. </td>
+                        </tr>
+                        <tr>
+                            <td>Happiness Index </td>
+                            <td id="mid-col">N.A.</td>
+                            <td>Weighted rating, range of 0 – 200 (happiest)  </td>
+                        </tr>
+                        <tr>
+                            <td>World Freedom Index  </td>
+                            <td id="mid-col">N.A.</td>
+                            <td>0 – 10 (Freest)  </td>
+                        </tr>
+                        <tr>
+                            <td>Quality of Life Index </td>
+                            <td id="mid-col">N.A.</td>
+                            <td>Equally weighted rating - basic literacy rate, infant mortality, and life expectancy at age one, range of 0 - 100 </td>
+                        </tr>
+                        <tr>
+                            <td>Purchasing Power Index (Purchasing Power Parity)  </td>
+                            <td id="mid-col">National currency per US dollar </td>
+                            <td>Considers exchange rates for equivalent ‘basket of goods’. </td>
+                        </tr>
+                        <tr>
+                            <td>Cost of Living Index </td>
+                            <td id="mid-col">N.A.</td>
+                            <td>Baseline of 100  </td>
+                        </tr>
+                        <tr>
+                            <td>Property Price to Income Ratio </td>
+                            <td id="mid-col">N.A.</td>
+                            <td>NIL </td>
+                        </tr>
+                        <tr>
+                            <td>Pollution Index  </td>
+                            <td id="mid-col">Parts per million (ppm) </td>
+                            <td>Healthy: 0 – 50 <br>
+                                Unhealthy: >100 </td>
+                        </tr>
+                    </table>
+                     
+                </div>
+            </p>
+        </div>
+        
+        <div class="space pb-5" data-aos="fade-up" data-aos-duration="1000">
+            <h1 class="text-body"> Data Cleaning </h1>
+            <h2 class="space text-body">Cleaning Using Pandas (Python)  </h2><br>
+            <p class="para">
+                <div class="pb-5">
+                    To ensure that the range of independent values (X-Values), was the same as the range of dependent values (Y- Values), we had to find 
+                    specific countries and years that existed in all the datasets, i.e., finding their intersect. To achieve this, we made used of the 
+                    pandas library in Python to sort and delete values that were not needed.
+                </div>
+            </p>
+            <h2 class="space text-body">Our Chosen Range</h2><br>
+            <p class="para">
+                <div class="pb-5">
+                    Our chosen Range of data consisted of a total of 27 Countries in the regions of Europe, South America, and Southeast Asia with years 
+                    ranging from 2017 – 2020. Each independent dataset has 93 data values.
+                </div>
+            </p>
+        </div>   
+        <hr>
+        <div class="space pb-5" data-aos="fade-up" data-aos-duration="1000">
+            <h1 class="text-body">Success of Our Model</h1>
+            <h2 class="space text-body">Metrics</h2><br>
+            <p class="para">
+                <div class="pb-5">
+                    <div>
+                        <span id='my-heading'><u>Adjusted R-Squared</u> </span><br>
 
+                        <span>For multiple linear regression, the R<sup>2</sup> coefficient is not a good performance metric, as increasing the number of features 
+                        always increases the R2 value. The adjusted R2 value (r2_adj) is a metric that accounts for this "inflation" of the R2 value when the
+                        number of feature variables increases and is therefore more appropriate for evaluating model fit. </span><br>
+                    </div>
+                    <div class="pt-5">
+                        <span id='my-heading'><u>P-value</u></span><br>
+
+                        <span>For each predictor variable in multiple linear regression, the P-value associated with its coefficient indicates whether the variable 
+                            contributes significantly. It is a form of hypothesis testing, and to perform this test, one must formulate a null hypothesis; The null 
+                            hypothesis in this case would be the lack of correlation between predictor variables and the target. To reject the null hypothesis, that 
+                            is to have significance would require a P-value < 0.01  </span><br>
+                    </div>
+                    <div class="pt-5">
+                        <span id='my-heading'><u>F-statistic</u></span><br>
+
+                        <span>The F-statistic is the P-value of the overall model. Its properties remain the same as well as the accepted significance. 
+                        F-Value > 4.0 </span><br>
+                    </div>
+                    <div class="pt-5">
+                        <span id='my-heading'><u>Mean Squared Error (MSE) </u></span><br>
+
+                        <span>Mean squared error (MSE) measures the amount of error in statistical models. It assesses the average squared 
+                            difference between the observed and predicted values. When a model has no error, the MSE equals zero. As model error 
+                            increases, its value increases. </span>
+                    </div>
+                </div></p>
+            <h3 class="space text-body">Chosen Metric: F-Value </h3><br>
+                <p class="para">
+                    <div class="pb-5">
+                            From this exploration, our initial chosen independent variables were:  <br><br>
+                            Crude Birth Rates, Food Price Inflation, Global Peace Index, Happiness Index, Human Development Index, Poverty Headcount, 
+                            Agriculture Gross Production Index, Meat Gross production Index, World Freedom Index, Share of employment in Agriculture,
+                            World Population, Quality of Life index, Purchasing power Index, Safety Index, Health Care index, Cost of Living Index, 
+                            Property Price to income Ratio, Traffic Commute Time index, Pollution Index, climate Index and Global Terrorism Index.  
+                    </div>
+                </p>
+        </div>
+        <hr>
+
+        <div class="space pb-5" data-aos="fade-up" data-aos-duration="1000">
+            <h1 class="text-body">Comparison of Our Model</h1>
+            <h2 class="space text-body">Hypotheses</h2><br>
+            <p class="para">
+                <div class="pb-5">
+                    <div>
+                        <span id='my-heading'><u>Null Hypothesis (H0) </u> </span><br>
+
+                        <span>Changes in the independent variables do not influence the cost of a healthy diet per person per day (USD/Day), and hence they 
+                            are not appropriate predictor variables. </span><br>
+                    </div>
+                    <div class="pt-5">
+                        <span id='my-heading'><u>Alternate Hypothesis (H1) </u></span><br>
+
+                        <span>Changes in the independent variables influence the cost of a healthy diet per person per day (USD/Day), and hence they are 
+                            appropriate predictor variables. </span><br>
+                    </div>
+                    <div class="pt-5">
+                        <span id='my-heading'><u>Testing and Comparison</u></span><br>
+                        <span>To reject the null hypothesis and accept the alternative hypothesis, F-value > 4.0.  </span>
+                        <div class="pt-5">
+                            <table>
+                                <thead id="Header">
+                                <tr>
+                                    <th>Testing Iteration </th>
+                                    <th>F-value </th>
+                                    <th>Changes Made </th>
+                                    <th>Other Metrics </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>Model 1 (Base model) </td>
+                                    <td>15.8 </td>
+                                    <td>None, using all Independent Variables </td>
+                                    <td>Adjusted R2: 0.56 MSE: 0.1238 </td>
+                                </tr>
+                                <tr>
+                                    <td>Model 2  </td>
+                                    <td>18.16 </td>
+                                    <td>Removed Cost of Living index  <br>(Proved for weakest correlation among accepted R2 values) </td>
+                                    <td>Adjusted R2: 0.56; MSE: 0.1246 </td>
+                                </tr>
+                                <tr>
+                                    <td>Model 3  </td>
+                                    <td>20.22 </td>
+                                    <td>Removed Cost of Living and Pollution index  <br>(Cost of living index and Pollution index had the lowest R2 when compared to our dependent variable, therefore we removed them for model 2 and 3) </td>
+                                    <td>Adjusted R2: 0.56 MSE: 0.1290 </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </p>
+        </div>
+        <hr>
+        <div class="space pb-5" data-aos="fade-up" data-aos-duration="1000">
+            <h1 class="text-body">Final Model</h1>
+            <div class="space">
+                <p class="para">
+                    <div class="pb-5">
+                        <div class="pb-5">
+                            After rigorous testing and comparison of multiple linear regression models, we arrived at our final model, 
+                            which incorporates specific independent variables that demonstrated a significant influence on the cost of a 
+                            healthy diet per person per day (USD/Day). Our chosen model aims to strike a balance between explanatory power 
+                            and practicality, considering both statistical significance and real-world implications.
+                        </div>
+                        <div class="pb-5">
+                            Our final model includes the following independent variables: Human Development Index, Happiness Index, World 
+                                Freedom Index, Quality of Life Index and Purchasing Power Index.   
+                        </div>
+                    </div>
+                </p>
+            </div>
+            <h3 class="text-body">Model Refinement </h3><br>
+            <p class="para">
+                <div class="pb-5">
+                    Through a series of model iterations and statistical analyses, we refined the variables included in our model. Notably, 
+                    we observed that the removal of certain variables improved the model's performance. In particular, the exclusion of the 
+                    Cost of Living Index and Pollution Index resulted in an enhanced F-value (20.22) and maintained a consistent adjusted R2 (0.56).  
+                </div>
+            </p>
+            <h3 class="text-body">Limitations</h3><br>
+            <p class="para">
+                <div class="pb-5">
+                    It is important to acknowledge the limitations of our model. We opted not to include the year and countries as input variables 
+                    due to a limited number of data points. However, we recognize that these factors inherently influence our target variable. 
+                    Future iterations of this model may benefit from an expanded dataset that incorporates additional years and countries for a 
+                    more comprehensive analysis. 
+                </div>
+            </p>
+            
+            <hr>
+        <div class="text-center" data-aos="fade-up" data-aos-duration="1500">
+            <a href="/ml-model">
+                <button id='learn-more' type="button" class="btn btn-primary btn-lg">LOOK AT MODEL</button>
+            </a>
+        </div>
+        <div class="empty-div"></div>
+    </main>
+</div>
 {% endblock %}
